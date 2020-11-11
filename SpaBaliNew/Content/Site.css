@@ -1,24 +1,625 @@
-﻿body {
+﻿/* Globals
+   ========================================================================== */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+    *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
+html, body {
+    line-height: 1;
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Trebuchet MS";
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+iframe {
+    max-width: 100%;
+    border: 0;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a, a:before, a:after, button, input[type="submit"] {
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+input[type="submit"], button {
+    /*appearance: none;*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+textarea {
+    /*appearance: none;*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Alignments
+   ========================================================================== */
+
+.alignright {
+    float: right;
+}
+
+.alignleft {
+    float: left;
+}
+
+.aligncenter {
+    display: block;
+    margin: auto;
+    text-align: center;
+    clear: both;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Typography
+   ========================================================================== */
+
+.text-black {
+    color: #000;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-normal {
+    font-weight: 400;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.regular-content p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+    .regular-content p:last-child {
+        margin-bottom: 0;
+    }
+
+/* Spacers padding
+   ========================================================================== */
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+.pt-40 {
+    padding-top: 40px;
+}
+
+.pt-50 {
     padding-top: 50px;
+}
+
+.pt-60 {
+    padding-top: 60px;
+}
+
+.pt-70 {
+    padding-top: 70px;
+}
+
+.pt-80 {
+    padding-top: 80px;
+}
+
+.pt-90 {
+    padding-top: 90px;
+}
+
+.pt-100 {
+    padding-top: 100px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pb-20 {
     padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.pb-30 {
+    padding-bottom: 30px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.pb-40 {
+    padding-bottom: 40px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.pb-50 {
+    padding-bottom: 50px;
+}
+
+.pb-60 {
+    padding-bottom: 60px;
+}
+
+.pb-70 {
+    padding-bottom: 70px;
+}
+
+.pb-80 {
+    padding-bottom: 80px;
+}
+
+.pb-90 {
+    padding-bottom: 90px;
+}
+
+.pb-100 {
+    padding-bottom: 100px;
+}
+
+/* Spacers margin
+   ========================================================================== */
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.mt-80 {
+    margin-top: 80px;
+}
+
+.mt-90 {
+    margin-top: 90px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-80 {
+    margin-bottom: 80px;
+}
+
+.mb-90 {
+    margin-bottom: 90px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+/* Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    text-decoration: none;
+}
+
+.btn--orange {
+    background: #ec6607;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: .8 !important;
+    background: #ec6607 !important;
+    color: #fff !important;
+}
+
+/* Headings
+   ========================================================================== */
+
+.heading-1 {
+    font-size: 25px;
+    position: relative;
+}
+
+.heading-2 {
+    font-size: 22px;
+    position: relative;
+}
+
+.heading-sub {
+    font-size: 20px;
+    position: relative;
+}
+
+/* Heading lines
+   ========================================================================== */
+
+.heading-line:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-width: 100px;
+    width: 100%;
+    height: 2px;
+    display: inline-block;
+    content: '';
+}
+
+.line--blue:before {
+    background: #009dde;
+}
+
+/* Home content
+   ========================================================================== */
+
+/* Admin bar */
+
+.admin-bar {
+    background: #222222;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    max-height: 0px;
+    transition: all .3s ease-in-out;
+    animation-name: fadeOut;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+    .admin-bar a {
+        visibility: hidden;
+        opacity: 0;
+        animation-name: fadeOutButtons;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+    }
+
+.content-block:hover > .admin-bar {
+    max-height: 60px !important;
+    padding: 9px 0 !important;
+}
+
+    .content-block:hover > .admin-bar a {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+/* Header */
+.navbar-inverse {
+    border: none;
+    background: #009dde;
+    padding: 20px 0;
+    box-shadow: 0 0 50px rgba(0,35,43,.08);
+}
+
+.navbar-header img {
+    padding: 8px 0 0;
+}
+
+.nav.navbar-nav {
+    padding-left: 100px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-nav > li {
+    margin: 0 10px;
+}
+
+.header-placeholder {
+    width: 100%;
+    height: 90px;
+}
+
+.hero {
+    width: 100%;
+    max-height: 550px;
+    height: 100%;
+    position: relative;
+}
+
+    .hero figure {
+        background: #000;
+    }
+
+        .hero figure, .hero figure img {
+            width: 100%;
+            height: 100%;
+            max-height: 550px;
+        }
+
+            .hero figure img {
+                object-fit: cover;
+                opacity: .9;
+            }
+
+/* Content section homepage */
+
+.chooseLodge {
+    background: #009dde;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 100%;
+    max-width: 550px;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0 0 50px rgba(0,35,43,.08);
+}
+
+    .chooseLodge select {
+        background: #fff;
+        width: 100%;
+        height: 40px;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        /*-o-appearance: none;*/
+    }
+
+.chooseDiv {
+    height: 100%;
+    margin: 0 20px;
+}
+
+.chooseText {
+    width: 30%;
+    font-size: 20px;
+    padding: 8px 0 0;
+}
+
+.chooseType {
+    width: 40%;
+    position: relative
+}
+
+    .chooseType:after {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 11px;
+        background-image: url(../Images/chevron-down-solid.svg);
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+    }
+
+.chooseButton {
+    width: 30%;
+    text-align: center;
+}
+
+.chooseLodge .row {
+    display: flex;
+}
+
+/* Lodges content
+   ========================================================================== */
+
+
+
+/* About content
+   ===================================================================== */
+
+.hero.hero-sub {
+    max-height: 350px;
+}
+
+    .hero.hero-sub figure, .hero.hero-sub figure img {
+        max-height: 350px;
+    }
+
+
+
+
+/* Contact content
+   ========================================================================== */
+
+.contactform form fieldset input, .contactform form fieldset textarea {
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+    width: 100%;
+}
+
+.contactform {
+    margin: 0 auto;
+}
+
+.contactform-section .container {
+    display: flex;
+}
+
+.contact-content {
+    background: #fbfbfb;
+    height: 100%;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Register/login content
+   ========================================================================== */
+/* Gebruikers-pagina content
+   ========================================================================== */
+.userContent {
+    border: 1px solid #8c8c8c;
+    width: 100%;
+}
+
+    .userContent .user {
+        padding-left: 10px;
+    }
+
+.userHeader {
+    border-bottom: 1px solid #8c8c8c;
+}
+
+.userContent .user {
+    width: 30.33%;
+    padding: 15px 20px 15px;
+}
+
+.userHeader .user {
+    padding: 10px 20px 10px;
+}
+
+.userItem:nth-child(even), .userItem:nth-child(even) .user {
+    background: #f9f8f8;
+}
+
+.userItem .user p {
+    padding-top: 14px;
+}
+
+.userMain .user {
+    background: #fefefe;
+}
+
+.userContent .row {
+    display: flex;
+    margin: 0 !important;
+}
+
+/* Footer */
+footer {
+    background: #f9f8f8;
+}
+
+    footer a, footer {
+        color: #000;
+    }
+
+        footer li {
+            padding-bottom: 10px;
+            list-style: none;
+        }
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+/* Animations */
+@keyframes fadeOut {
+    0% {
+        max-height: 60px;
+        padding: 9px 0;
+    }
+
+    80% {
+        max-height: 60px;
+        padding: 9px 0;
+    }
+
+    100% {
+        max-height: 0px;
+        padding: 0;
+    }
+}
+
+@keyframes fadeOutButtons {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    80% {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
 }

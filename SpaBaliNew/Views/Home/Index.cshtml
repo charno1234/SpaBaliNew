@@ -2,30 +2,88 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!--Hero section-->
+<div class="hero">
+    <figure class="hero-image">
+        <img src="~/Images/878006.jpg" alt="Hero image" />
+    </figure>
+
+    <!--Choose lodge section-->
+    <div class="chooseLodge">
+        <div class="row">
+
+            <div class="chooseDiv chooseText">
+                <p>
+                    Kies uw lodge
+                </p>
+            </div>
+
+            <div class="chooseDiv chooseType text-black">
+                <select>
+                    <option value="TypeLodge">Type lodge</option>
+                </select>
+            </div>
+
+            <div class="chooseDiv chooseButton">
+                <a class="btn btn--orange" href="#">Boek lodge</a>
+            </div>
+
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<!--Main section-->
+<section id="main" class="mt-50">
+
+    <div class="container">
+
+        <!--Content section-->
+        <div class="content-block">
+
+            <div class="regular-content text-black pt-50">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h1 class="heading-1 text-bold heading-line line--blue pb-10">
+                            Lorem ipsum
+                        </h1>
+
+                        <p class="pt-30">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+                        </p>
+
+                        <p>
+                            Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+                        </p>
+                    </div>
+
+                    <div class="col-md-5 col-sm-offset-1">
+                        <figure>
+                            <img src="~/Images/blokhut.jpg" alt="Bali lodge" />
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- If admin admin bar section-->
+            @if (User.IsInRole("Manager"))
+            {
+                <div class="admin-bar mt-20">
+                    <div class="container">
+
+                        <div class="row">
+                            <a class="btn btn-success" href="#">Add</a>
+                            <a class="btn btn-primary" href="#">Edit</a>
+                            <a class="btn btn-danger" href="#">Remove</a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+</section>
